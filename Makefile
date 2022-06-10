@@ -1,5 +1,5 @@
 PKG_NAME := pypi-plotly
-URL = https://files.pythonhosted.org/packages/9b/84/66628d6c33fe13858711de5b8de4696f867097a01232596beced6c209638/plotly-5.8.1.tar.gz
+URL = https://files.pythonhosted.org/packages/21/98/ad2068e88fa5ff5f63e9730732e55ebbf0253703217e872da6662bb5101e/plotly-5.8.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
