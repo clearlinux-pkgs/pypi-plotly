@@ -4,7 +4,7 @@
 #
 Name     : pypi-plotly
 Version  : 5.11.0
-Release  : 37
+Release  : 38
 URL      : https://files.pythonhosted.org/packages/79/92/55488b71f3d200faa9c05db4c8cc7c37f962af6eda8db04ca0f29f9912d3/plotly-5.11.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/79/92/55488b71f3d200faa9c05db4c8cc7c37f962af6eda8db04ca0f29f9912d3/plotly-5.11.0.tar.gz
 Summary  : An open-source, interactive data visualization library for Python
