@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-plotly
-Version  : 5.14.1
-Release  : 43
-URL      : https://files.pythonhosted.org/packages/dd/24/4f307b6e54892a4b91c58a1ee5826325529231d885df8aaa0f1863191f8d/plotly-5.14.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/dd/24/4f307b6e54892a4b91c58a1ee5826325529231d885df8aaa0f1863191f8d/plotly-5.14.1.tar.gz
+Version  : 5.15.0
+Release  : 44
+URL      : https://files.pythonhosted.org/packages/7b/1b/49b60763629f8b654798f78b800c8617b56a8fbb5d3ff93d610a96ebee4c/plotly-5.15.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/7b/1b/49b60763629f8b654798f78b800c8617b56a8fbb5d3ff93d610a96ebee4c/plotly-5.15.0.tar.gz
 Summary  : An open-source, interactive data visualization library for Python
 Group    : Development/Tools
 License  : MIT
@@ -16,6 +16,9 @@ Requires: pypi-plotly-license = %{version}-%{release}
 Requires: pypi-plotly-python = %{version}-%{release}
 Requires: pypi-plotly-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+BuildRequires : pypi(jupyterlab)
+BuildRequires : pypi(setuptools)
+BuildRequires : pypi(wheel)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -91,10 +94,10 @@ python3 components for the pypi-plotly package.
 
 
 %prep
-%setup -q -n plotly-5.14.1
-cd %{_builddir}/plotly-5.14.1
+%setup -q -n plotly-5.15.0
+cd %{_builddir}/plotly-5.15.0
 pushd ..
-cp -a plotly-5.14.1 buildavx2
+cp -a plotly-5.15.0 buildavx2
 popd
 
 %build
@@ -102,15 +105,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680725652
+export SOURCE_DATE_EPOCH=1686327704
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
@@ -150,15 +153,15 @@ rm -f %{buildroot}*/usr/etc/jupyter/nbconfig/notebook.d/jupyterlab-plotly.json
 %files data
 %defattr(-,root,root,-)
 /usr/share/jupyter/labextensions/jupyterlab-plotly/package.json
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/133.f3efd6f2704522ff3b63.js
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/423.a173fe7fc002e2014c2a.js
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/478.f7319c49bce7c550ff08.js
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/478.f7319c49bce7c550ff08.js.LICENSE.txt
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/133.5342d9bec93d5de59ad2.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/423.d0d3e2912c33c7566484.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/478.247fddac0148cc4e151b.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/478.247fddac0148cc4e151b.js.LICENSE.txt
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/486.6450efe6168c2f8caddb.js
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/486.6450efe6168c2f8caddb.js.LICENSE.txt
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/657.b28ffbba9c00cc1d1f86.js
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/855.3df3272be51618b38ffb.js
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/remoteEntry.d87fbfbef62a029ce69b.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/657.d89469e0b1d5bb171fde.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/855.323c80e7298812d692e7.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/remoteEntry.f294278414d0a929e4ae.js
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/style.js
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/third-party-licenses.json
 /usr/share/jupyter/nbextensions/jupyterlab-plotly/extension.js
