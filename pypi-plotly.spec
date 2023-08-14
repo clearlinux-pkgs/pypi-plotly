@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-plotly
-Version  : 5.15.0
-Release  : 44
-URL      : https://files.pythonhosted.org/packages/7b/1b/49b60763629f8b654798f78b800c8617b56a8fbb5d3ff93d610a96ebee4c/plotly-5.15.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/7b/1b/49b60763629f8b654798f78b800c8617b56a8fbb5d3ff93d610a96ebee4c/plotly-5.15.0.tar.gz
+Version  : 5.16.0
+Release  : 45
+URL      : https://files.pythonhosted.org/packages/ae/d3/4054e9e7b94571de786d2c34bfc8ee8e847d792f7cf9f294f5ea5ef9d2a8/plotly-5.16.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/ae/d3/4054e9e7b94571de786d2c34bfc8ee8e847d792f7cf9f294f5ea5ef9d2a8/plotly-5.16.0.tar.gz
 Summary  : An open-source, interactive data visualization library for Python
 Group    : Development/Tools
 License  : MIT
@@ -94,10 +94,10 @@ python3 components for the pypi-plotly package.
 
 
 %prep
-%setup -q -n plotly-5.15.0
-cd %{_builddir}/plotly-5.15.0
+%setup -q -n plotly-5.16.0
+cd %{_builddir}/plotly-5.16.0
 pushd ..
-cp -a plotly-5.15.0 buildavx2
+cp -a plotly-5.16.0 buildavx2
 popd
 
 %build
@@ -105,7 +105,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686327704
+export SOURCE_DATE_EPOCH=1692028186
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -153,15 +153,15 @@ rm -f %{buildroot}*/usr/etc/jupyter/nbconfig/notebook.d/jupyterlab-plotly.json
 %files data
 %defattr(-,root,root,-)
 /usr/share/jupyter/labextensions/jupyterlab-plotly/package.json
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/133.5342d9bec93d5de59ad2.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/133.1846e414f91a1a8ec2f7.js
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/423.d0d3e2912c33c7566484.js
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/478.247fddac0148cc4e151b.js
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/478.247fddac0148cc4e151b.js.LICENSE.txt
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/478.c5c2fef7276f97adfc35.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/478.c5c2fef7276f97adfc35.js.LICENSE.txt
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/486.6450efe6168c2f8caddb.js
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/486.6450efe6168c2f8caddb.js.LICENSE.txt
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/657.d89469e0b1d5bb171fde.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/657.60f96f98a3d250417b1b.js
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/855.323c80e7298812d692e7.js
-/usr/share/jupyter/labextensions/jupyterlab-plotly/static/remoteEntry.f294278414d0a929e4ae.js
+/usr/share/jupyter/labextensions/jupyterlab-plotly/static/remoteEntry.95d448ffe99353fc62d1.js
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/style.js
 /usr/share/jupyter/labextensions/jupyterlab-plotly/static/third-party-licenses.json
 /usr/share/jupyter/nbextensions/jupyterlab-plotly/extension.js
